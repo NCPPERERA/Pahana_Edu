@@ -51,16 +51,16 @@ CREATE TABLE IF NOT EXISTS order_items (
 
 -- Seed admin user (password = admin123)
 INSERT INTO users(username, password_hash, role)
-VALUES ('admin', SHA2('admin123', 256), 'ADMIN')
+VALUES ('admin', SHA2('123', 256), 'ADMIN')
 ON DUPLICATE KEY UPDATE username = username;
 
 -- Seed sample data
 INSERT INTO customers(account_number, name, address, phone)
-VALUES ('ACC-1001','Nimal Perera','Colombo 05','0771234567')
+VALUES ('1001','Perera','Ja Ela','0707564736')
 ON DUPLICATE KEY UPDATE account_number=account_number;
 
 INSERT INTO items(sku, name, unit_price) VALUES
-('BK-001','Java Basics', 2500.00),
-('BK-002','Advanced Java', 3900.00),
-('ST-001','Notebook A5', 350.00)
+('001','C#', 2800.00),
+('002','C++', 1800.00),
+('003','Java', 350.00)
 ON DUPLICATE KEY UPDATE sku = sku;
