@@ -37,19 +37,27 @@
         th { background: #eaf3ff; }
         td img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; border: 2px solid #c2e6ff; }
         tr:nth-child(even) { background: #f4faff; }
-        .msg { text-align: center; padding: 10px; border-radius: 7px; margin-bottom: 15px;}
-        .msg.error { background: #ffe9e9; color: #d8000c; }
-        .msg.success { background: #eaffea; color: #007b1f; }
-        .form-group { display: flex; gap: 18px; flex-wrap: wrap; }
+        .msg { text-align: center; 
+               padding: 10px; 
+              border-radius: 7px; 
+              margin-bottom: 15px;}
+        .msg.error { background: #ffe9e9; 
+                color: #d8000c; }
+        .msg.success { background: #eaffea; 
+                  color: #007b1f; }
+        .form-group { display: flex; gap: 18px; 
+                     flex-wrap: wrap; }
         form label { flex: 1 1 160px; }
-        form button { margin-top: 12px; width: 120px; }
-        .actions { display: flex; gap: 8px; }
+        form button { margin-top: 12px; 
+                      width: 120px; }
+        .actions { display: flex; 
+                  gap: 8px; }
         form.inline { display: inline; }
         
         .icon-btn {
                     background: none;
                     border: none;
-                    padding: 0.5px 0.5px;       /* smaller padding */
+                    padding: 1px 1px;       /* smaller padding */
                     cursor: pointer;
                     font-size: 18px;        /* slightly smaller icon */
                     color: #0e6fff;
@@ -93,7 +101,7 @@
                 <label>Address <input name="address" required value="<%= editAddress != null ? editAddress : "" %>"></label>
                 <label>Phone <input name="phone" required pattern="\d{7,}" value="<%= editPhone != null ? editPhone : "" %>"></label>
             </div>
-            <button type="submit"><%= editId != null ? "Update" : "Add" %></button>
+                <button type="submit"><%= editId != null ? "Update" : "Add" %></button><br>
             <% if (editId != null) { %>
                 <a href="customers">Cancel</a>
             <% } %>

@@ -26,7 +26,7 @@ Full step‑by‑step NetBeans import & GlassFish config is documented at the en
 
 1. Start **XAMPP** → **MySQL**.
 2. Open **phpMyAdmin** and run `db/mysql-schema.sql` to create schema and seed data.
-   - Admin user: `admin / admin123`
+   - Admin user: `admin / 123`
    - Sample customer & items are inserted.
 
 If your MySQL password is not blank, edit **`pahana-edu-service/src/main/resources/db.properties`**.
@@ -37,8 +37,8 @@ If your MySQL password is not blank, edit **`pahana-edu-service/src/main/resourc
 
 1. **Add GlassFish 7** to NetBeans (Tools → Servers → Add Server → GlassFish → point to GF7 install).
 2. Open the two projects.
-3. Right-click **pahana-edu-service** → *Run*. Verify health: `http://localhost:8080/pahana-edu-service/api/health` shows `OK`.
-4. Right-click **pahana-edu-web** → *Run*. It will open `index.jsp` (login). Use `admin/admin123`.
+3. Right-click **pahana-edu-service** → *Run*. Verify health: `http://localhost:8080/pahana-edu-service/api/` shows `OK`.
+4. Right-click **pahana-edu-web** → *Run*. It will open `index.jsp` (login). Use `admin/123`.
 
 > You can override the service base URL for the web client via VM options:
 > Run → Set Project Configuration → Customize → Run → VM Options: `-Dservice.base=http://localhost:8080/pahana-edu-service/api/`
@@ -75,7 +75,7 @@ If your MySQL password is not blank, edit **`pahana-edu-service/src/main/resourc
 
 ## REST endpoints (test with curl/Postman)
 
-- `GET  /pahana-edu-service/api/health` → OK
+- `GET  /pahana-edu-service/api/` → OK
 - `GET  /pahana-edu-service/api/customers`
 - `POST /pahana-edu-service/api/customers` JSON: `{ "accountNumber":"ACC-2000","name":"User","address":"Addr","phone":"077..." }`
 - `GET  /pahana-edu-service/api/items`

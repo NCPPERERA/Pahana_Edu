@@ -20,15 +20,17 @@
             background-position: center;
             background-attachment: fixed;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
         }
         .dashboard-outer {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             width: 100vw;
             min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .dashboard-container {
             max-width: 900px;
@@ -37,7 +39,7 @@
             border-radius: 28px;
             box-shadow: 0 10px 32px rgba(0,0,0,0.14);
             padding: 48px 40px 40px 40px;
-            margin: 30px auto;
+            margin: 30px 20px 30px auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -120,10 +122,13 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 18px;
             }
+            .dashboard-container {
+                margin: 10px 10px 10px auto;
+            }
         }
         @media (max-width: 600px) {
             .dashboard-container {
-                margin: 10px 0;
+                margin: 10px 5px;
                 padding: 10px 2px;
             }
             nav {
@@ -157,7 +162,6 @@
                 <a href="bill">Bill</a>
                 <a href="reports">Reports</a>
                 <a href="help">Help</a>
-                <a href="profile" class="icon-btn" title="Profile">👤</a>
                 <a href="logout" class="icon-btn" title="Logout">↩️</a>
             </nav>
             <div class="dashboard-cards">

@@ -13,7 +13,7 @@
             min-height: 100vh;
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+            background: url('images/bg2.jpg') no-repeat center center fixed;
             background-size: cover;
         }
         .overlay {
@@ -123,7 +123,7 @@
             <button type="submit">Login</button>
             <p class="error"><%= request.getAttribute("error") == null ? "" : request.getAttribute("error") %></p>
         </form>
-        <p class="note"><small>Default: admin / 123</small></p>
+        <p class="note"><small>Pahana Edu © Colombo</small></p>
     </div>
 </body>
 </html>

@@ -16,52 +16,51 @@ public class ItemDAO {
             return out;
         }
     }
-    public ItemDTO findById(int id) throws Exception {
+
+    public ItemDTO findBySku(String sku) throws Exception {
         try (Connection c = DB.get();
-             PreparedStatement ps = c.prepareStatement("SELECT * FROM items WHERE id=?")) {
-            ps.setInt(1, id);
+             PreparedStatement ps = c.prepareStatement("SELECT * FROM items WHERE sku=?")) {
+            ps.setString(1, sku);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) return map(rs);
                 return null;
             }
         }
     }
+
     public ItemDTO create(ItemDTO d) throws Exception {
         try (Connection c = DB.get();
              PreparedStatement ps = c.prepareStatement(
-                "INSERT INTO items(sku,name,unit_price) VALUES (?,?,?)",
-                Statement.RETURN_GENERATED_KEYS)) {
+                "INSERT INTO items(sku,name,unit_price) VALUES (?,?,?)")) {
             ps.setString(1, d.sku);
             ps.setString(2, d.name);
             ps.setDouble(3, d.unitPrice);
             ps.executeUpdate();
-            try (ResultSet rs = ps.getGeneratedKeys()) {
-                if (rs.next()) d.id = rs.getInt(1);
-            }
             return d;
         }
     }
-    public boolean update(int id, ItemDTO d) throws Exception {
+
+    public boolean update(String sku, ItemDTO d) throws Exception {
         try (Connection c = DB.get();
              PreparedStatement ps = c.prepareStatement(
-                "UPDATE items SET sku=?, name=?, unit_price=? WHERE id=?")) {
-            ps.setString(1, d.sku);
-            ps.setString(2, d.name);
-            ps.setDouble(3, d.unitPrice);
-            ps.setInt(4, id);
+                "UPDATE items SET name=?, unit_price=? WHERE sku=?")) {
+            ps.setString(1, d.name);
+            ps.setDouble(2, d.unitPrice);
+            ps.setString(3, sku);
             return ps.executeUpdate() == 1;
         }
     }
-    public boolean delete(int id) throws Exception {
+
+    public boolean delete(String sku) throws Exception {
         try (Connection c = DB.get();
-             PreparedStatement ps = c.prepareStatement("DELETE FROM items WHERE id=?")) {
-            ps.setInt(1, id);
+             PreparedStatement ps = c.prepareStatement("DELETE FROM items WHERE sku=?")) {
+            ps.setString(1, sku);
             return ps.executeUpdate() == 1;
         }
     }
+
     private ItemDTO map(ResultSet rs) throws Exception {
         ItemDTO d = new ItemDTO();
-        d.id = rs.getInt("id");
         d.sku = rs.getString("sku");
         d.name = rs.getString("name");
         d.unitPrice = rs.getDouble("unit_price");

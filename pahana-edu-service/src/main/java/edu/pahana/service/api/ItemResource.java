@@ -16,9 +16,9 @@ public class ItemResource {
     @GET
     public List<ItemDTO> all() throws Exception { return dao.findAll(); }
 
-    @GET @Path("{id}")
-    public ItemDTO byId(@PathParam("id") int id) throws Exception { 
-        ItemDTO d = dao.findById(id);
+    @GET @Path("{sku}")
+    public ItemDTO byId(@PathParam("sku") String sku) throws Exception { 
+        ItemDTO d = dao.findBySku(sku);
         if (d == null) throw new NotFoundException();
         return d;
     }
@@ -28,16 +28,16 @@ public class ItemResource {
         return Response.status(Response.Status.CREATED).entity(dao.create(d)).build();
     }
 
-    @PUT @Path("{id}")
-    public Response update(@PathParam("id") int id, ItemDTO d) throws Exception {
-        boolean ok = dao.update(id, d);
+    @PUT @Path("{sku}")
+    public Response update(@PathParam("sku") String sku, ItemDTO d) throws Exception {
+        boolean ok = dao.update(sku, d);
         if (!ok) throw new NotFoundException();
         return Response.ok().build();
     }
 
-    @DELETE @Path("{id}")
-    public Response delete(@PathParam("id") int id) throws Exception {
-        boolean ok = dao.delete(id);
+    @DELETE @Path("{sku}")
+    public Response delete(@PathParam("sku") String sku) throws Exception {
+        boolean ok = dao.delete(sku);
         if (!ok) throw new NotFoundException();
         return Response.noContent().build();
     }
