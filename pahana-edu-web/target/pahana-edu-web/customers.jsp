@@ -101,7 +101,7 @@
                 <label>Address <input name="address" required value="<%= editAddress != null ? editAddress : "" %>"></label>
                 <label>Phone <input name="phone" required pattern="\d{7,}" value="<%= editPhone != null ? editPhone : "" %>"></label>
             </div>
-                <button type="submit"><%= editId != null ? "Update" : "Add" %></button><br>
+            <button type="submit"><%= editId != null ? "Update" : "Add" %></button><br
             <% if (editId != null) { %>
                 <a href="customers">Cancel</a>
             <% } %>
