@@ -1,3 +1,4 @@
+edu\pahana\service\dao\ReportDAO.class
 edu\pahana\service\dto\CustomerDTO.class
 edu\pahana\service\dao\CustomerDAO.class
 edu\pahana\service\api\CustomerResource.class

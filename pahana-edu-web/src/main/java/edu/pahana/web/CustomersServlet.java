@@ -12,7 +12,7 @@ public class CustomersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String json = RestClient.get("customers");
         req.setAttribute("json", json);
-        req.getRequestDispatcher("customers.jsp").forward(req, resp);
+        req.getRequestDispatcher("/customers.jsp").forward(req, resp);
     }
 
     @Override

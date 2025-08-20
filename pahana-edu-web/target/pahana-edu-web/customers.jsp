@@ -142,7 +142,7 @@
                 <td><%= phone %></td>
                 <td class="actions">
                     <!-- Edit action: reload page with edit form populated -->
-                    <form class="inline" method="get" action="customers.jsp">
+                    <form class="inline" method="get" action="customers">
                         <input type="hidden" name="editId" value="<%= id %>">
                         <input type="hidden" name="editAccount" value="<%= accountNumber %>">
                         <input type="hidden" name="editName" value="<%= name %>">
@@ -152,6 +152,7 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                     </form>
+
                     <!-- Delete action: POST with action=delete -->
                     <form class="inline" method="post" action="customers" onsubmit="return confirm('Delete this customer?');">
                         <input type="hidden" name="action" value="delete">

@@ -4,6 +4,5 @@ edu\pahana\web\RestClient.class
 edu\pahana\web\LogoutServlet.class
 edu\pahana\web\CustomersServlet.class
 edu\pahana\web\HelpServlet.class
-edu\pahana\web\DB.class
 edu\pahana\web\BillServlet.class
 edu\pahana\web\ItemsServlet.class
