@@ -15,56 +15,111 @@
 <html>
 <head>
     <title>Customers - Pahana Edu</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body { background: #f4f7fa; }
-        
-        .container { max-width: 900px; 
-                    margin: 40px auto; 
-                    background: #fff; 
-                    border-radius: 15px; 
-                    box-shadow: 0 6px 24px rgba(0,0,0,0.08); 
-                    padding: 30px; }
-        
-        h2 { text-align: center; 
-             color: #0e6fff; 
-             margin-bottom: 24px; }
-        
+        /* Background bookstore image */
+        body {
+            background: url("https://images.unsplash.com/photo-1512820790803-83ca734da794") no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Transparent container */
+        .container {
+            max-width: 950px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.90); /* more visible transparency */
+            border-radius: 15px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0e6fff;
+            margin-bottom: 24px;
+        }
+
         nav { margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; background: #f6faff; }
-        th, td { padding: 14px 10px; text-align: left; }
-        th { background: #eaf3ff; }
-        td img { border-radius: 50%; width: 48px; height: 48px; object-fit: cover; border: 2px solid #c2e6ff; }
-        tr:nth-child(even) { background: #f4faff; }
-        .msg { text-align: center; 
-               padding: 10px; 
-              border-radius: 7px; 
-              margin-bottom: 15px;}
-        .msg.error { background: #ffe9e9; 
-                color: #d8000c; }
-        .msg.success { background: #eaffea; 
-                  color: #007b1f; }
-        .form-group { display: flex; gap: 18px; 
-                     flex-wrap: wrap; }
-        form label { flex: 1 1 160px; }
-        form button { margin-top: 12px; 
-                      width: 120px; }
-        .actions { display: flex; 
-                  gap: 8px; }
+        nav a { text-decoration: none; color: #0e6fff; font-weight: bold; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fdfdfd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            text-align: left;
+        }
+        th {
+            background: #eaf3ff;
+        }
+        tr:nth-child(even) { background: #f8fbff; }
+
+        td img {
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            object-fit: cover;
+            border: 2px solid #c2e6ff;
+        }
+
+        .msg {
+            text-align: center;
+            padding: 10px;
+            border-radius: 7px;
+            margin-bottom: 15px;
+        }
+        .msg.error {
+            background: #ffe9e9;
+            color: #d8000c;
+        }
+        .msg.success {
+            background: #eaffea;
+            color: #007b1f;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        form label {
+            flex: 1 1 160px;
+        }
+        form button {
+            margin-top: 12px;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            background: #0e6fff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #005fcc;
+        }
+
+        .actions {
+            display: flex;
+            gap: 6px;
+        }
         form.inline { display: inline; }
-        
+
         .icon-btn {
-                    background: none;
-                    border: none;
-                    padding: 1px 1px;       /* smaller padding */
-                    cursor: pointer;
-                    font-size: 18px;        /* slightly smaller icon */
-                    color: #0e6fff;
-                    transition: color 0.2s;
-                    line-height: 1;
-                    margin: 0 0px;          /* reduce space between buttons */
-                    }
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #0e6fff;
+            transition: color 0.2s;
+        }
         .icon-btn.delete {
             color: #b00;
         }
@@ -74,21 +129,24 @@
         .icon-btn.delete:hover {
             color: #a00;
         }
+
         @media (max-width: 700px) {
-            .container { padding: 7px; }
-            .form-group { flex-direction: column; gap: 5px; }
+            .container { padding: 15px; }
+            .form-group { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>👥 Customers</h2>
-        <nav><a href="dashboard.jsp">← Back to Dashboard</a></nav>
+        <nav><a href="dashboard.jsp">Back</a></nav>
+
         <% if (error != null) { %>
             <div class="msg error"><%= error %></div>
         <% } else if (success != null) { %>
             <div class="msg success"><%= success %></div>
         <% } %>
+
         <!-- Add/Edit Form -->
         <form method="post" action="customers">
             <input type="hidden" name="action" value="<%= editId != null ? "edit" : "create" %>">
@@ -101,7 +159,7 @@
                 <label>Address <input name="address" required value="<%= editAddress != null ? editAddress : "" %>"></label>
                 <label>Phone <input name="phone" required pattern="\d{7,}" value="<%= editPhone != null ? editPhone : "" %>"></label>
             </div>
-            <button type="submit"><%= editId != null ? "Update" : "Add" %></button><br
+            <button type="submit"><%= editId != null ? "Update" : "Add" %></button>
             <% if (editId != null) { %>
                 <a href="customers">Cancel</a>
             <% } %>
@@ -133,15 +191,13 @@
                         String avatarUrl = "https://api.dicebear.com/7.x/initials/svg?radius=50&seed=" + java.net.URLEncoder.encode(name, "UTF-8");
             %>
             <tr>
-                <td>
-                    <img src="<%= avatarUrl %>" alt="avatar">
-                </td>
+                <td><img src="<%= avatarUrl %>" alt="avatar"></td>
                 <td><%= accountNumber %></td>
                 <td><%= name %></td>
                 <td><%= address %></td>
                 <td><%= phone %></td>
                 <td class="actions">
-                    <!-- Edit action: reload page with edit form populated -->
+                    <!-- Edit action -->
                     <form class="inline" method="get" action="customers">
                         <input type="hidden" name="editId" value="<%= id %>">
                         <input type="hidden" name="editAccount" value="<%= accountNumber %>">
@@ -153,7 +209,7 @@
                         </button>
                     </form>
 
-                    <!-- Delete action: POST with action=delete -->
+                    <!-- Delete action -->
                     <form class="inline" method="post" action="customers" onsubmit="return confirm('Delete this customer?');">
                         <input type="hidden" name="action" value="delete">
                         <input type="hidden" name="id" value="<%= id %>">
