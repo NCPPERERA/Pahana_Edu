@@ -140,32 +140,24 @@
     <p>Your step-by-step guide to using the system effectively</p>
   </header>
 
-  <nav>
-    <a href="dashboard.jsp"><i class="ri-home-4-line"></i> Dashboard</a>
-    <a href="customers"><i class="ri-user-3-line"></i> Customers</a>
-    <a href="items"><i class="ri-archive-line"></i> Items</a>
-    <a href="bill"><i class="ri-file-list-line"></i> Create Bill</a>
-    <a href="reports"><i class="ri-bar-chart-2-line"></i> Reports</a>
-    <a href="logout"><i class="ri-logout-box-line"></i> Logout</a>
-  </nav>
-
   <main>
     <div class="note">
       <strong>Tip:</strong> Use <kbd>Ctrl</kbd> + <kbd>P</kbd> to print this guide. Print view is optimized for clean output.
+    <nav><a href="dashboard.jsp">Back</a></nav>
     </div>
 
     <section id="login">
       <h2><i class="ri-login-circle-line"></i> 1) Login</h2>
       <ul>
         <li>Open the application to see the login screen.</li>
-        <li>Default demo credentials: <strong>admin / admin123</strong>.</li>
-        <li>On success you will be redirected to the <em>Dashboard</em>.</li>
+        <li>Default demo credentials: <strong>admin / 123</strong>.</li>
+        <li>On success you will be redirected to the <em>Home</em>.</li>
       </ul>
     </section>
 
     <section id="customers">
       <h2><i class="ri-user-add-line"></i> 2) Customers</h2>
-      <p>Add and manage student/parent accounts.</p>
+      <p>Add and manage customer accounts.</p>
       <ol>
         <li>Go to <em>Customers</em> → fill <strong>Account #, Name, Address, Phone</strong>.</li>
         <li>Click <strong>Add</strong>. The list updates below.</li>
@@ -174,7 +166,7 @@
 
     <section id="items">
       <h2><i class="ri-book-line"></i> 3) Items</h2>
-      <p>Manage books, stationery, and services.</p>
+      <p>Manage books and stationery.</p>
       <ol>
         <li>Go to <em>Items</em> → fill <strong>SKU, Name, Unit Price</strong>.</li>
         <li>Click <strong>Add</strong>. The list updates below.</li>
@@ -195,7 +187,7 @@
 
     <section id="reports">
       <h2><i class="ri-bar-chart-line"></i> 5) Reports</h2>
-      <p>Access sales summaries, top items, and daily reports.</p>
+      <p>Access sales summaries.</p>
     </section>
 
     <section id="troubleshoot">

@@ -41,6 +41,13 @@
             letter-spacing: 1px;
             font-weight: 600;
         }
+        h4 {
+            font-size: 1.4em;
+            margin-bottom: 1.0em;
+            color: #222;
+            letter-spacing: 3px;
+            font-weight: 900;
+        }
         form {
             display: flex;
             flex-direction: column;
@@ -99,7 +106,7 @@
                 max-width: 95%;
             }
             h2 {
-                font-size: 1.4em;
+                font-size: 1.4em;}
             }
             label {
                 font-size: 1em;
@@ -110,13 +117,15 @@
             button {
                 font-size: 1em;
             }
-        }
+        
     </style>
 </head>
 <body>
     <div class="overlay"></div>
     <div class="login-container">
-        <h2>Pahana Edu - Login</h2>
+        
+        <img src="images/pahana2.jpg" alt="" width="150" height="150">
+        <h4>Login</h4>
         <form method="post" action="login">
             <label>Username <input name="username" required></label>
             <label>Password <input name="password" type="password" required></label>
